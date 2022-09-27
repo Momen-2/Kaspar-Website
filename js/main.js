@@ -7,13 +7,6 @@ const getElement = (selector) => {
   )
 }
 
-// const links = getElement('.nav-links')
-// const navBtnDOM = getElement('.nav-button')
-  
-// navBtnDOM.addEventListener('click', () => {
-//   links.classList.toggle('show-links')
-// })
-
 const mybutton = document.getElementById("scrollToUpButton");
 window.onscroll = function() {scrollFunction()};
 
@@ -37,7 +30,3 @@ window.addEventListener("load", vanish);
 function vanish() {
   loader.classList.add("disppear");
 }
-
-const date = document.getElementById('date');
-const currentYear = new Date().getFullYear()
-date.textContent = currentYear
