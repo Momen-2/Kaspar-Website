@@ -46,6 +46,7 @@ p {
   font-weight: 500;
   line-height: var(--line-height);
   color: var(--black);
+  font-size: 16.8px;
 }
 pre {
   border-radius: var(--border-radius);
@@ -303,8 +304,12 @@ hr {
   top: 0;
   left: 0;
 }
-.landing .content h1, h3 {
+.landing h1, .landing h3 {
   color: var(--white);
+}
+.landing h1 {
+  font-size: 5rem;
+  margin-bottom: 100px;
 }
 .landing .button {
   background-color: transparent;
@@ -318,6 +323,67 @@ hr {
 }
 .landing .button:hover a {
   color: var(--black);
+}
+
+.main-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-section .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+  grid-gap: 30px;
+  margin-top: 80px;
+  padding-bottom: 80px;
+}
+.main-section .box {
+  background-color: #f8fafc;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-section .circle {
+  font-weight: normal;
+  position: relative;
+  top: -25px;
+  right: 150px;
+  background-color: var(--color-1);
+  color: var(--white);
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+}
+.main-section .circle span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 58px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.main-section .info {
+  padding: 0 1em;
+  line-height: normal;
+  text-align: center;
+}
+.main-section .button {
+  margin-bottom: 1rem;
+}
+@media (min-width: 655px) {
+  .boxes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 882px) {
+  .boxes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .scroll-to-top {
