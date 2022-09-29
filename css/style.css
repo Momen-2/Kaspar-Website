@@ -35,6 +35,7 @@ body {
   font-family: var(--body-font);
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 ::selection {
   background-color: var(--color-1);
@@ -372,6 +373,9 @@ hr {
   line-height: normal;
   text-align: center;
 }
+.main-section h3 {
+  margin-top: 0;
+}
 .main-section .button {
   margin-bottom: 1rem;
 }
@@ -384,6 +388,122 @@ hr {
   .boxes {
       grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 70px 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 95%;
+  border-radius: var(--border-radius);
+}
+.modal .modal-content p {
+  max-width: none;
+  padding: 30px;
+}
+.modal .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+.modal .close:hover,
+.modal .close:focus {
+  color: var(--color-1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.q-and-a-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.q-and-a {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.q-and-a.active {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.q-and-a.active::before,
+.q-and-a.active::after {
+  content: '\f075';
+  font-family: 'Font Awesome 5 Free';
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+.q-and-a.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+.q-and-a-title {
+  margin: 0 35px 0 0;
+}
+.q-and-a-text {
+  display: none;
+  margin: 30px 0 0;
+}
+.q-and-a.active .q-and-a-text {
+  display: block;
+}
+.q-and-a-toggle {
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+.q-and-a-toggle:focus {
+  outline: 0;
+}
+.q-and-a-toggle .fa-times {
+  display: none;
+}
+.q-and-a.active .q-and-a-toggle .fa-times {
+  color: #fff;
+  display: block;
+}
+.q-and-a.active .q-and-a-toggle .fa-chevron-down {
+  display: none;
+}
+.q-and-a.active .q-and-a-toggle {
+  background-color: #9fa4a8;
 }
 
 .scroll-to-top {
