@@ -16,7 +16,7 @@
   --text-color: var(--grey-900);
   --border-radius: 0.25rem;
   --letter-spacing: .68px;
-  --transition: 0.3s ease-in-out all;
+  --transition: 0.5s ease-in-out all;
   --max-width: 890px;
   --fixed-width: 600px;
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -38,7 +38,7 @@ body {
   overflow: hidden;
 }
 ::selection {
-  background-color: var(--color-1);
+  background-color: var(--background-color);
   color: var(--white);
 }
 p {
@@ -60,7 +60,6 @@ h5 {
   margin: 1rem 0;
   font-family: var(--heading-font);
   font-weight: 500;
-  line-height: 2.8rem;
   text-transform: capitalize;
   letter-spacing: var(--letter-spacing);
   color: var(--black);
@@ -113,7 +112,6 @@ hr {
   display: block;
   object-fit: cover;
   border-radius: var(--border-radius);
-  max-height: 450px;
 }
 .tag {
   display: inline-block;
@@ -202,7 +200,7 @@ hr {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--color-1);
+  background-color: var(--background-color);
   height: 100%;
   width: 100%;
   display: flex;
@@ -234,14 +232,6 @@ hr {
 }
 .title {
   text-align: center;
-}
-.title-underline {
-  background: var(--color-1);
-  width: 7rem;
-  height: 0.25rem;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-  margin-top: -.6rem;
 }
 .container {
   margin: 0 auto;
@@ -353,7 +343,7 @@ hr {
   position: relative;
   top: -25px;
   right: 150px;
-  background-color: var(--color-1);
+  background-color: var(--background-color);
   color: var(--white);
   border-radius: 50%;
   width: 58px;
@@ -378,16 +368,6 @@ hr {
 }
 .main-section .button {
   margin-bottom: 1rem;
-}
-@media (min-width: 655px) {
-  .boxes {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 882px) {
-  .boxes {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 .modal {
@@ -428,7 +408,6 @@ hr {
 }
 
 .q-and-a-container {
-  max-width: 600px;
   margin: 0 auto;
 }
 .q-and-a {
@@ -442,7 +421,7 @@ hr {
   transition: 0.3s ease;
 }
 .q-and-a.active {
-  background-color: #fff;
+  background-color: var(--white);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 .q-and-a.active::before,
@@ -506,6 +485,148 @@ hr {
   background-color: #9fa4a8;
 }
 
+.cards {
+  display: flex;
+  width: 100%;
+  height: 360px;
+  justify-content: center;
+  align-items: center;
+}
+.cards .card {
+  width: 16%;
+  height: 350px;
+  margin: 0 0.5rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  transform-style: preserve-3d;
+}
+.cards .face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  background-size: cover;
+  background-position: center center;
+  backface-visibility: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-4);
+}
+.cards .face-front {
+  background-color: var(--background-color);
+}
+.cards .face-front h4 {
+  color: var(--white);
+  line-height: normal;
+}
+.cards .face-back {
+  background: var(--white);
+  transform: rotateY(180deg);
+}
+.cards .face-back h4 {
+  color: var(--color-1);
+  line-height: normal;
+}
+.cards .card:hover .face-front {
+  transform: rotateY(-180deg);
+}
+.cards .card:hover .face-back {
+  transform: rotateY(0deg);
+}
+
+.plants, .micro-organisms, .spore {
+  margin-top: 8rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.heading span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  color: var(--white);
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  font-size: 30px;
+  font-weight: 900;
+  margin-right: 10px;
+}
+.heading h3 {
+  margin-bottom: 0;
+}
+
+.slideshow {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.slideshow .previous, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: var(--color-1);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.slideshow .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.slideshow .previous:hover, .next:hover {
+  background-color: var(--background-color);
+  color: var(--white);
+}
+.slideshow .numbertext {
+  color: var(--color-1);
+  font-size: 16px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  font-weight: 900;
+}
+.slideshow .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.slideshow .active, .dot:hover {
+  background-color: #717171;
+}
+.slideshow .fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+@keyframes fade {
+  from {opacity: .2} 
+  to {opacity: 1}
+}
+
+.modal-content .image {
+  width: 38%;
+  display: inline;
+}
+
 .scroll-to-top {
   transition: var(--transition);
 }
@@ -518,7 +639,7 @@ hr {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: var(--color-1);
+  background-color: var(--background-color);
   color: var(--white);
   border-radius: 50%;
   padding: 0.8rem 1.1rem;
