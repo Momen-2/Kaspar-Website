@@ -224,7 +224,7 @@ hr {
 .loading {
   width: 6rem;
   height: 6rem;
-  border: 5px solid var(--grey-500);
+  border: 5px solid var(--color-1);
   border-radius: 50%;
   border-top-color: var(--color-1);
   animation: spinner 1s linear infinite;
